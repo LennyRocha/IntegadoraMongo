@@ -1,0 +1,25 @@
+.min-bud{
+    justify-content: center !important  ;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+.min-bud img{
+    width: 15rem;
+    height: auto;
+}
+
+.min-bud h1{
+    font-family: 'HouseOfTerror';
+    font-size: 8rem;
+    -webkit-text-stroke: 2px black;
+    color:var(--color-fondo-header)
+}
+
+.min-bud h3{
+    font-family: "Burbank";
+    font-size: 5rem;
+    -webkit-text-stroke: 2px darkgreen;
+    color:var(--color-zombi-texto)
+}

@@ -1,0 +1,190 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #fec88f !important;
+  flex-shrink: 0 0 320px !important;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: inset 20px 20px 25px rgba(1, 1, 1, 0.5),
+    inset -20px -20px 25px rgba(1, 1, 1, 0.5);
+
+  --color-planta-texto: #d79d37;
+  --color-planta-fondo: #6a3011;
+  --color-planta-marco: #91441e;
+  --color-planta-borde: #520000;
+
+  --color-zombi-texto: #0ebc12;
+  --color-zombi-fondo: #202535;
+  --color-zombi-marco: #616282;
+  --color-zombi-borde: #100705;
+
+  --color-fondo-boton: #fbc587;
+  --color-fondo-body: #fec88f;
+  --color-fondo-texto: #dadad8;
+  --color-fondo-header: #8d91a2;
+  --color-fondo-borde: #010101;
+
+  --color-otro-borde: #8f613a;
+  --color-otro-texto: #302954;
+  --color-otro-equis: #a72d34;
+  --color-otro-cafe: #501900;
+}
+
+@font-face {
+  font-family: "HouseOfTerror";
+  src: url("./assets/fonts/HouseofTerror.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "dwarvesc";
+  src: url("./assets/fonts/DWARVESC.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brianne´s";
+  src: url("./assets/fonts/Brianne_s_hand.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Burbank";
+  src: url("./assets/fonts/Burbank.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+body {
+  align-items: center;
+  min-width: 320px;
+  background-color: transparent !important;
+  min-height: 100vh;
+  flex-shrink: 0 0 320px;
+  border-radius: 6px;
+}
+
+.borde-cafe {
+  border: 4px solid var(--color-planta-marco);
+}
+
+.borde-azul {
+  border: 3px solid var(--color-zombi-marco);
+}
+
+.borde-gris {
+  border: 3px solid var(--color-fondo-header);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.quitarScroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer y Edge */
+}
+
+.quitarScroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
+}
+
+.txtAr {
+  background-color: var(--color-fondo-boton);
+}
+
+.txtAr .MuiInputLabel-root {
+  color: var(--color-zombi-fondo) !important; /* Color por defecto */
+}
+
+.txtAr:focus-within {
+  border-color: var(--color-zombi-texto) !important;
+}
+
+.txtAr .MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--color-zombi-marco);
+}
+
+.txtAr .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--color-zombi-texto) !important;
+}
+
+.txtAr {
+  font-family: "Brianne´s" !important;
+}
+
+.txtAr .MuiInputLabel-root,
+.MuiInputBase-input {
+  color: var(--color-zombi-fondo); /* Color por defecto */
+  font-family: "Brianne´s" !important;
+}
+
+/* Cambiar el color del label cuando el TextField está enfocado */
+.txtAr .MuiInputLabel-root.Mui-focused {
+  color: var(--color-zombi-texto) !important;
+}
+
+.my-spinner {
+  border: 5px solid var(--color-zombi-texto);
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  border-radius: 50%;
+  animation: spin 1s  infinite;
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg), scale(1.2);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text-sweet{
+  font-family: "Brianne´s" !important;
+}
+
+.green-btn{
+  background-color: var(--color-zombi-texto) !important;
+}
+
+.red-btn{
+  background-color: var(--color-otro-equis) !important;
+}

@@ -1,0 +1,80 @@
+#indexDiv {
+  width: 100% !important;
+}
+
+#indexHead {
+  width: 90%;
+  background-color: #8d91a2;
+  border-radius: 5px;
+  box-shadow: inset 4px 4px 8px rgba(255, 255, 255, 0.5),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.5);
+  border: 0.25px solid #100705;
+  text-transform: uppercase;
+}
+
+#indexHead p {
+  font-size: 32px;
+  font-weight: bold;
+  color: #dadad8;
+  -webkit-text-stroke: 1px #100705;
+  text-shadow: 1px 3px #100705;
+  font-family: "HouseOfTerror";
+  padding-bottom: -1px !important;
+  margin-bottom: 0 !important;
+}
+
+.indexImg {
+  width: 10rem;
+  height: 10rem;
+}
+
+.container-index {
+  background-color: var(--color-planta-marco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  gap: 3px;
+  border-radius: 10px;
+  border: 1px solid var(--color-planta-borde);
+  box-shadow: 4px 4px 10px rgba(1, 1, 1, 0.5);
+}
+
+.index-button {
+  font-family: "dwarvesc";
+  color: var(--color-planta-texto);
+  border-radius: 2px;
+  background-color: var(--color-planta-marco);
+  border: 1px solid var(--color-planta-borde);
+  outline: none !important;
+  box-shadow: 2px 2px 5px rgba(1, 1, 1, 0.5);
+}
+
+.index-button:hover {
+  filter: brightness(2);
+  outline: none !important;
+}
+
+.bordeao {
+  border: 2px solid rgba(143, 97, 58, 0.25);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.container-index a {
+  color: var(--color-planta-texto) !important;
+}
+
+.index-child {
+  height: max-content !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  background-color: var(--color-planta-fondo);
+  width: 100%;
+  border: 1px solid var(--color-planta-borde);
+  border-radius: 5px;
+  padding: 5px;
+}

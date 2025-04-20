@@ -1,0 +1,17 @@
+# React router
+npm i react-router-dom
+# Bootstrap
+npm i bootstrap
+npm i react-bootstrap
+# Instala Material UI y sus dependencias necesarias
+npm install @mui/material @emotion/react @emotion/styled
+# Opcionalmente, instala los iconos de Material UI
+npm install @mui/icons-material
+# axios
+npm i axios
+# react-hook-form
+npm i react-hook-form
+# yup
+npm i yup @hookform/resolvers
+# sweetalert
+npm i sweetalert2

@@ -1,0 +1,45 @@
+.vistaHeaderReg {
+  display: flex;
+  justify-content: center;
+}
+
+.bordeReg {
+  width: 80%;
+  background-color: var(--color-zombi-marco);
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--color-zombi-borde);
+}
+
+.vistaHeaderReg h1 {
+  background-color: var(--color-zombi-marco);
+  filter: brightness(1.15);
+  height: 100%;
+  padding: 2px;
+  font-family: "dwarvesc";
+  color: var(--color-zombi-texto);
+  border-radius: 5px;
+  border: 1px var(--color-zombi-borde);
+}
+
+.botonFile {
+  font-family: "dwarvesc" !important;
+  background-color: var(--color-planta-marco) !important;
+  border: 1px solid var(--color-planta-borde) !important;
+  color: var(--color-planta-texto) !important;
+}
+
+.botonFile:hover {
+  filter: brightness(1.5);
+}
+
+.img-prev {
+  width: 100%;
+  max-height: 12rem;
+}
+
+.err-p{
+  color: var(--color-otro-equis);
+  margin:  -2px !important;
+  font-family: 'Brianne´s';
+}

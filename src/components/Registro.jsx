@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { PlantaContext } from "../context/PlantaContext";
 
 import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
@@ -88,6 +89,7 @@ export default function Registro() {
     resolver: yupResolver(planta),
     mode: "onChange",
   });
+    const navigate = useNavigate();
   const setData = () => {
     setValue("id", plant._id);
     setValue("nombre", plant.nombre);
@@ -166,6 +168,7 @@ export default function Registro() {
         clearErrors();
         setSelectedFile(null);
         setPreview("");
+        navigate("/plantas");
       })
       .catch((err) =>
         Swal.fire({
@@ -215,6 +218,7 @@ export default function Registro() {
         setEdit(false);
         setPreview("");
         setPlant(null);
+        navigate("/plantas");
       })
       .catch((err) =>
         Swal.fire({
@@ -248,7 +252,6 @@ export default function Registro() {
   };
   const onSubmit = (data) => {
     handleClick();
-    console.log(data);
     if (!selectedFile && !edit) {
       setLoading(false);
       setWarning("No has seleccionado una imagen");
@@ -287,7 +290,6 @@ export default function Registro() {
               <VisuallyHiddenInput
                 type="file"
                 onChange={(event) => {
-                  console.log(event.target.files);
                   handleFileChange(event);
                 }}
                 multiple

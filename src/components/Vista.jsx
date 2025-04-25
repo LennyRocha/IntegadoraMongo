@@ -20,12 +20,20 @@ export default function Vista() {
   const [plantas, setPlantas] = useState([]);
   const [plantaElegida, setPlantaElegida] = useState(null);
   const [reload, setReload] = useState(false);
+  const lista = [];
   useEffect(() => {
     document.body.classList.add("borde-cafe");
 
+    const setImages = async (list) => {
+      list.map((p) => getFoto(p._id, p))
+      setPlantas(list);
+    }
+
     setLoadingPlants(true);
 
-    axios
+    const getPlantas = async () => {
+      let datos = []
+      await axios
       .get(`${api_url}/api/plantas`)
       .then((res) => {
         console.log(res.data);
@@ -33,11 +41,15 @@ export default function Vista() {
           setFallo("No hay plantas disponibles");
           return;
         }
-        setPlantas(res.data);
+        datos = res.data;
       })
-      .catch((err) => console.log(err, err.response.data))
+      .catch((err) => {console.error(err, err.response.data); setFallo("Hubo un error al obtener las plantas")})
       .finally(() => setLoadingPlants(false));
+      await setImages(datos)
+    }
     document.title = "Ver plantas";
+
+     getPlantas()
 
     // Limpieza cuando se desmonta
     return () => {
@@ -95,7 +107,65 @@ export default function Vista() {
       }
     });
   }
+  const [img, setImg] = useState("");
   const navigate = useNavigate();
+  function getImage(id, p) {
+    axios
+      .get(`${api_url}/api/plantas/${id}/imagen`, {
+        responseType: "arraybuffer",
+      })
+      .then((res) => {
+        // Crear un blob con el binario recibido
+        const blob = new Blob([res.data], { type: "image/png" }); // Puedes ajustar el tipo si usas jpg
+        const imageUrl = URL.createObjectURL(blob);
+
+        // Establecer la URL de imagen para mostrarla
+        setImg(imageUrl);
+        const plantaDatos = {
+          _id: p._id,
+          nombre: p.nombre,
+          tipo: p.tipo,
+          costo_soles: p.costo_soles,
+          recarga: p.recarga,
+          dano: p.dano,
+          resistencia: p.resistencia,
+          rango: p.rango,
+          velocidad_ataque: p.velocidad_ataque,
+          descripcion: p.descripcion,
+          imagenUrl: imageUrl
+        };
+        setPlantaElegida(plantaDatos);
+      })
+      .catch((err) => console.error(err));
+  }
+  async function getFoto(id, p) {
+    axios
+      .get(`${api_url}/api/plantas/${id}/imagen`, {
+        responseType: "arraybuffer",
+      })
+      .then((res) => {
+        // Crear un blob con el binario recibido
+        const blob = new Blob([res.data], { type: "image/png" }); // Puedes ajustar el tipo si usas jpg
+        const imageUrl = URL.createObjectURL(blob);
+
+        // Establecer la URL de imagen para mostrarla
+        const plantaDatos = {
+          _id: p._id,
+          nombre: p.nombre,
+          tipo: p.tipo,
+          costo_soles: p.costo_soles,
+          recarga: p.recarga,
+          dano: p.dano,
+          resistencia: p.resistencia,
+          rango: p.rango,
+          velocidad_ataque: p.velocidad_ataque,
+          descripcion: p.descripcion,
+          imagenUrl: imageUrl
+        };
+        lista.push(plantaDatos)
+      })
+      .catch((err) => console.error(err));
+  }
   return (
     <div className="mainDiv">
       <header className="vistaHeader">
@@ -137,8 +207,7 @@ export default function Vista() {
                       className="p"
                       src={planta.imagenUrl}
                       onClick={() => {
-                        console.log(planta);
-                        setPlantaElegida(planta);
+                        getImage(planta._id, planta);
                       }}
                     />
                   </Tooltip>
@@ -154,9 +223,7 @@ export default function Vista() {
         <div className="col-md-4">
           <div className="desc">
             <div className="place">
-              <img
-                src={plantaElegida === null ? patio : plantaElegida.imagenUrl}
-              />
+              <img src={plantaElegida === null ? patio : img} />
             </div>
             <h3>
               {plantaElegida === null
